@@ -30,10 +30,9 @@ button {
 
 img {
   display: block;
-  max-width: 100%;
-  height: auto;
+  max-width: 200px;
+  height: 200px;
 }
-
 
 .search-form {
   text-align: center;
@@ -52,8 +51,12 @@ img {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .gallery {
