@@ -1,17 +1,14 @@
-(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const n of o.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&s(n)}).observe(document,{childList:!0,subtree:!0});function c(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerpolicy&&(o.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?o.credentials="include":e.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=c(e);fetch(e.href,o)}})();$(document).ready(function(){const f=$("#searchForm"),r=$("#searchInput"),c=$("#gallery"),s=$("#loader"),e="41927484-8453b2dd3e18520885b5ece2f",o="https://pixabay.com/api/";f.submit(function(d){d.preventDefault();const a=r.val().trim();a!==""&&(s.show(),c.empty(),axios.get(o,{params:{key:e,q:a,image_type:"photo",orientation:"horizontal",safesearch:!0}}).then(function(i){const l=i.data.hits;l.length===0?iziToast.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}):(l.forEach(function(t){const u=$(`
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const s of t.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&n(s)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();$(document).ready(function(){const c=$("#searchForm"),o=$("#searchInput"),i=$("#gallery"),n=$("#loader"),e="41927484-8453b2dd3e18520885b5ece2f",t="https://pixabay.com/api/";c.submit(function(s){s.preventDefault();const l=o.val().trim();l!==""&&(n.show(),i.empty(),axios.get(t,{params:{key:e,q:l,image_type:"photo",orientation:"horizontal",safesearch:!0}}).then(function(a){const d=a.data.hits;d.length===0?iziToast.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}):(d.forEach(function(r){const f=$(`
                 <div class="card">
-                  <img src="${t.webformatURL}" data-src="${t.largeImageURL}" alt="${t.tags}">
+                  <a href="${r.webformatURL}" data-lightbox="gallery" data-title="${r.tags}">
+                    <img src="${r.largeImageURL}" alt="${r.tags}">
+                  </a>
                   <div class="image-info">
-                    <p>Likes: ${t.likes}</p>
-                    <p>Views: ${t.views}</p>
-                    <p>Comments: ${t.comments}</p>
-                    <p>Downloads: ${t.downloads}</p>
+                    <p>Likes: ${r.likes}</p>
+                    <p>Views: ${r.views}</p>
+                    <p>Comments: ${r.comments}</p>
+                    <p>Downloads: ${r.downloads}</p>
                   </div>
                 </div>
-              `);u.find("img").click(function(){n(t.largeImageURL,t.tags,t.likes,t.views,t.comments,t.downloads)}),c.append(u)}),new SimpleLightbox(".card img",{captionsDelayTime:250}).refresh())}).catch(function(i){console.error("Error fetching images:",i),iziToast.error({title:"Error",message:"An error occurred while fetching images. Please try again later."})}).finally(function(){s.hide()}))});function n(d,a,i,l,p,t){iziToast.info({title:a,message:`
-          <p>Likes: ${i}</p>
-          <p>Views: ${l}</p>
-          <p>Comments: ${p}</p>
-          <p>Downloads: ${t}</p>
-        `,position:"center",timeout:!1,closeOnClick:!0})}});
+              `);i.append(f)}),new SimpleLightbox(".card a",{captionsDelayTime:250,onComplete:()=>{}}).refresh())}).catch(function(a){console.error("Error fetching images:",a),iziToast.error({title:"Error",message:"An error occurred while fetching images. Please try again later."})}).finally(function(){n.hide()}))})});
 //# sourceMappingURL=commonHelpers.js.map
