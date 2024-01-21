@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.getElementById('searchInput');
   const gallery = document.getElementById('gallery');
   const loader = document.getElementById('loader');
-  const apiKey = '41927484-8453b2dd3e18520885b5ece2f'; // Замініть на свій унікальний ключ доступу
+  const apiKey = '41927484-8453b2dd3e18520885b5ece2f';
   const apiUrl = 'https://pixabay.com/api/';
   let page = 1;
   const lightbox = new SimpleLightbox('.gallery a');

@@ -30,8 +30,8 @@ button {
 
 img {
   display: block;
-  max-width: 200px;
-  height: 200px;
+  max-width: 100%;
+  height: auto;
 }
 
 .search-form {
@@ -61,20 +61,17 @@ img {
 
 .gallery {
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .card {
-  margin: 10px;
+  flex-basis: calc((100% - 60px) / 4);
 }
 
 .card img {
   width: 100%;
   height: auto;
   cursor: pointer;
-}
-
-.simple-lightbox {
-  display: none;
 }
